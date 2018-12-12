@@ -73,15 +73,21 @@ namespace Ejercicio14_LoginPassExcepciones
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {                        
-            //genero un numero aleatorio
+        {
+            calculaValorAleatorio(numeros, label3);
+        }
+
+        public void calculaValorAleatorio(int[] arrayInt, Label l)
+        {
+            // genero un número aleatorio
             Random ran = new Random();
 
-            //guardamos en la variable numRandom un numero aleatorio del array numeros
-            numRandom = numeros[ran.Next(0, numeros.Length)];
+            // guardamos en la variable numRandom un numero aleatorio del array numeros
+            int numRandom = arrayInt[ran.Next(0, arrayInt.Length)];
 
-            //cambio el valor de label3 para convertirlo en un captcha
-            label3.Text = Convert.ToString(numRandom);
+            // cambio la propiedad del Label l
+            l.Text = Convert.ToString(numRandom);
+
         }
     }
 }
