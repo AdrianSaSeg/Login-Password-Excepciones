@@ -15,6 +15,8 @@ namespace Ejercicio14_LoginPassExcepciones
         //variable para toda la clase
         public int intentos { get; set; } = 5;
 
+        public int[] numeros { get; set; } = { 1, 2, 3, 4, 5, 6, 7, 8 };
+        public int numRandom { get; set; }
         public Form1()
         {
             InitializeComponent();
@@ -30,7 +32,7 @@ namespace Ejercicio14_LoginPassExcepciones
                 FormatException ex = new FormatException("Error, la contraseña solo admite números");
 
                 
-                 if (login != "admin" && pass != 1234)
+                 if (login != "admin" || pass != 1234 || textBox3.Text != label3.Text)
                  {
                     intentos = intentos - 1;
                     MessageBox.Show("Usuario o contraseña incorrecta, tiene " + intentos + " más");
@@ -68,6 +70,18 @@ namespace Ejercicio14_LoginPassExcepciones
                 textBox1.Clear();
                 textBox2.Clear();
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {                        
+            //genero un numero aleatorio
+            Random ran = new Random();
+
+            //guardamos en la variable numRandom un numero aleatorio del array numeros
+            numRandom = numeros[ran.Next(0, numeros.Length)];
+
+            //cambio el valor de label3 para convertirlo en un captcha
+            label3.Text = Convert.ToString(numRandom);
         }
     }
 }
