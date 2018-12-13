@@ -52,10 +52,28 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGridView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGridView.Designer.cs">
+      <DependentUpon>FormGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNuevoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNuevoUsuario.Designer.cs">
+      <DependentUpon>FormNuevoUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGridView.resx">
+      <DependentUpon>FormGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNuevoUsuario.resx">
+      <DependentUpon>FormNuevoUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

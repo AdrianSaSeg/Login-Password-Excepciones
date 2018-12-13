@@ -16,7 +16,8 @@ namespace Ejercicio14_LoginPassExcepciones
         public int intentos { get; set; } = 5;
 
         public int[] numeros { get; set; } = { 1, 2, 3, 4, 5, 6, 7, 8 };
-        public int numRandom { get; set; }
+        public int numRandom1 { get; set; }
+        public int numRandom2 { get; set; }
         public Form1()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace Ejercicio14_LoginPassExcepciones
                 FormatException ex = new FormatException("Error, la contraseña solo admite números");
 
                 
-                 if (login != "admin" || pass != 1234 || textBox3.Text != label3.Text)
+                 if (login != "admin" || pass != 1234 || textBox3.Text != (label3.Text + label4.Text))
                  {
                     intentos = intentos - 1;
                     MessageBox.Show("Usuario o contraseña incorrecta, tiene " + intentos + " más");
@@ -46,9 +47,12 @@ namespace Ejercicio14_LoginPassExcepciones
                  else
                  {
                     MessageBox.Show("Ha entrado correctamente");
-                    Close();
-                 }                               
-                                            
+                    //Close();
+                    FormGridView formGridView = new FormGridView("Hola");
+                    formGridView.ShowDialog();
+                 }
+
+                
             }
             catch (FormatException ex)
             {
@@ -74,19 +78,24 @@ namespace Ejercicio14_LoginPassExcepciones
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            calculaValorAleatorio(numeros, label3);
+            calculaValorAleatorio(numeros, label3, label4);
         }
 
-        public void calculaValorAleatorio(int[] arrayInt, Label l)
+        public void calculaValorAleatorio(int[] arrayInt, Label l1, Label l2)
         {
             // genero un número aleatorio
             Random ran = new Random();
 
             // guardamos en la variable numRandom un numero aleatorio del array numeros
-            int numRandom = arrayInt[ran.Next(0, arrayInt.Length)];
-
+            int numRandom1 = arrayInt[ran.Next(0, arrayInt.Length)];
+            int numRandom2 = arrayInt[ran.Next(0, arrayInt.Length)];
+            
             // cambio la propiedad del Label l
-            l.Text = Convert.ToString(numRandom);
+            l1.Text = Convert.ToString(numRandom1);
+            l2.Text = Convert.ToString(numRandom2);
+
+            //cambio el valor de las propiedad globales numRandom1 y numRandom2
+
 
         }
     }
