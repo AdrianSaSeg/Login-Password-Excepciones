@@ -23,14 +23,23 @@ namespace Ejercicio14_LoginPassExcepciones
             InitializeComponent();
             datosTabla = dataGrid;
 
-            //
         }
+
+        public void Limpiar()
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+        } 
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string[] filaNueva = new string[4] { "Nombre", "Apellido", "Teléfono", "Email" };
+            string[] filaNueva = new string[4] { textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text };
 
             datosTabla.Rows.Add(filaNueva);
+
+            Limpiar();
         }
     }
 }
