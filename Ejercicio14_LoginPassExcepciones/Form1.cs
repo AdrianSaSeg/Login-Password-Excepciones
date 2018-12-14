@@ -16,8 +16,7 @@ namespace Ejercicio14_LoginPassExcepciones
         public int intentos { get; set; } = 5;
 
         public int[] numeros { get; set; } = { 1, 2, 3, 4, 5, 6, 7, 8 };
-        public int numRandom1 { get; set; }
-        public int numRandom2 { get; set; }
+        public int sumaRandom { get; set; }
         public Form1()
         {
             InitializeComponent();
@@ -33,7 +32,7 @@ namespace Ejercicio14_LoginPassExcepciones
                 FormatException ex = new FormatException("Error, la contraseña solo admite números");
 
                 
-                 if (login != "admin" || pass != 1234 || textBox3.Text != (label3.Text + label4.Text))
+                 if (login != "admin" || pass != 1234 || textBox3.Text != Convert.ToString(sumaRandom))
                  {
                     intentos = intentos - 1;
                     MessageBox.Show("Usuario o contraseña incorrecta, tiene " + intentos + " más");
@@ -47,7 +46,6 @@ namespace Ejercicio14_LoginPassExcepciones
                  else
                  {
                     MessageBox.Show("Ha entrado correctamente");
-                    //Close();
                     FormGridView formGridView = new FormGridView("Hola");
                     formGridView.ShowDialog();
                  }
@@ -94,8 +92,9 @@ namespace Ejercicio14_LoginPassExcepciones
             l1.Text = Convert.ToString(numRandom1);
             l2.Text = Convert.ToString(numRandom2);
 
-            //cambio el valor de las propiedad globales numRandom1 y numRandom2
+            //cambio el valor de la propiedad global sumaRandom
 
+            sumaRandom = numRandom1 + numRandom2;
 
         }
     }

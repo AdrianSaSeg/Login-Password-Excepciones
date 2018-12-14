@@ -38,5 +38,10 @@ namespace Ejercicio14_LoginPassExcepciones
             FormNuevoUsuario formNuevoUsuario = new FormNuevoUsuario(dataGridView1);
             formNuevoUsuario.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace Ejercicio14_LoginPassExcepciones
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            Application.Run(new FormGridView("Hola"));
+            
         }
     }
 }

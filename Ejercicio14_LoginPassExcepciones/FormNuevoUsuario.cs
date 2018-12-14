@@ -35,11 +35,17 @@ namespace Ejercicio14_LoginPassExcepciones
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string[] filaNueva = new string[4] { textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text };
+            try
+            {
+                datosTabla.Rows.Add(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox3.Text), textBox4.Text);
 
-            datosTabla.Rows.Add(filaNueva);
-
-            Limpiar();
+                Limpiar();
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show(ex.Message + " Introduce un número en la casilla teléfono");               
+            }
+           
         }
     }
 }
