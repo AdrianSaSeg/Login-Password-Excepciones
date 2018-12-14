@@ -12,16 +12,16 @@ namespace Ejercicio14_LoginPassExcepciones
 {
     public partial class FormNuevoUsuario : Form
     {
-        public DataGridView datosTabla { get; set; }
+        public DataGridView _DatosTabla { get; set; }
         public FormNuevoUsuario()
         {
             InitializeComponent();
         }
 
-        public FormNuevoUsuario(DataGridView dataGrid)
+        public FormNuevoUsuario(DataGridView dataGridView1)
         {
             InitializeComponent();
-            datosTabla = dataGrid;
+            _DatosTabla = dataGridView1;
 
         }
 
@@ -37,7 +37,7 @@ namespace Ejercicio14_LoginPassExcepciones
         {
             try
             {
-                datosTabla.Rows.Add(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox3.Text), textBox4.Text);
+                _DatosTabla.Rows.Add(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox3.Text), textBox4.Text);
 
                 Limpiar();
             }

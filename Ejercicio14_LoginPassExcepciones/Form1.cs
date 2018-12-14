@@ -12,11 +12,11 @@ namespace Ejercicio14_LoginPassExcepciones
 {
     public partial class Form1 : Form
     {
-        //variable para toda la clase
-        public int intentos { get; set; } = 5;
+        //variables globales (para toda la clase)
+        public int _Intentos { get; set; } = 5;
+        public int[] _Numeros { get; set; } = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        public int _SumaRandom { get; set; }
 
-        public int[] numeros { get; set; } = { 1, 2, 3, 4, 5, 6, 7, 8 };
-        public int sumaRandom { get; set; }
         public Form1()
         {
             InitializeComponent();
@@ -32,12 +32,12 @@ namespace Ejercicio14_LoginPassExcepciones
                 FormatException ex = new FormatException("Error, la contraseña solo admite números");
 
                 
-                 if (login != "admin" || pass != 1234 || textBox3.Text != Convert.ToString(sumaRandom))
+                 if (login != "admin" || pass != 1234 || textBox3.Text != Convert.ToString(_SumaRandom))
                  {
-                    intentos = intentos - 1;
-                    MessageBox.Show("Usuario o contraseña incorrecta, tiene " + intentos + " más");
+                    _Intentos = _Intentos - 1;
+                    MessageBox.Show("Usuario o contraseña incorrecta, tiene " + _Intentos + " más");
                     
-                    if (intentos == 0)
+                    if (_Intentos == 0)
                     {
                         MessageBox.Show("Has agotado el numero de intentos");
                         Close();
@@ -46,8 +46,8 @@ namespace Ejercicio14_LoginPassExcepciones
                  else
                  {
                     MessageBox.Show("Ha entrado correctamente");
-                    FormGridView formGridView = new FormGridView("Hola");
-                    formGridView.ShowDialog();
+                    FormGridView formGridView = new FormGridView("Hola");                    
+                    formGridView.ShowDialog();                    
                  }
 
                 
@@ -55,8 +55,8 @@ namespace Ejercicio14_LoginPassExcepciones
             catch (FormatException ex)
             {
                 MessageBox.Show(ex.Message);
-                intentos = intentos - 1;
-                MessageBox.Show("Error, tienes " + intentos + " más");
+                _Intentos = _Intentos - 1;
+                MessageBox.Show("Error, tienes " + _Intentos + " más");
             }
             catch (OverflowException ex)
             {
@@ -76,7 +76,7 @@ namespace Ejercicio14_LoginPassExcepciones
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            calculaValorAleatorio(numeros, label3, label4);
+            calculaValorAleatorio(_Numeros, label3, label4);
         }
 
         public void calculaValorAleatorio(int[] arrayInt, Label l1, Label l2)
@@ -94,7 +94,7 @@ namespace Ejercicio14_LoginPassExcepciones
 
             //cambio el valor de la propiedad global sumaRandom
 
-            sumaRandom = numRandom1 + numRandom2;
+            _SumaRandom = numRandom1 + numRandom2;
 
         }
     }
